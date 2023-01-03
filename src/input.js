@@ -22,7 +22,7 @@ const input = async () => {
       rl.close();
       process.exit(0);
     } else {
-      return query;
+      return 0;
     }
   }
 

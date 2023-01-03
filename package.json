@@ -4,6 +4,7 @@
   "description": "Todo Mission",
   "main": "Todo.js",
   "scripts": {
+    "start": "node ./src/grade.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

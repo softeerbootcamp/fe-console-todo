@@ -9,19 +9,19 @@ class Todo {
     this.#todo = [];
     this.#doing = [];
     this.#done = [];
-    this._divideStatus();
+    this.#divideStatus();
   }
 
-  _divideStatus() {
+  #divideStatus() {
     this.#todo = this.#todos.filter((res) => res.status === 'todo');
     this.#doing = this.#todos.filter((res) => res.status === 'doing');
     this.#done = this.#todos.filter((res) => res.status === 'done');
   }
 
-  _validate(id) {
-    const a = (el) => id === el.id;
+  #validate(id) {
+    const checkId = (el) => id === el.id;
 
-    if (this.#todos.findIndex(a) !== -1) return false;
+    if (this.#todos.findIndex(checkId) !== -1) return false;
 
     return true;
   }
@@ -48,7 +48,7 @@ class Todo {
   add(name, tags) {
     const rand = Math.floor(Math.random() * 10000) + 1;
 
-    if (!this._validate(rand)) this.add(name, tags);
+    if (!this.#validate(rand)) this.add(name, tags);
 
     const newTodo = {
       name: name,
@@ -69,7 +69,7 @@ class Todo {
       type = '';
     id = parseInt(id);
 
-    if (this._validate(id)) return console.log('존재하지 않는 ID 입니다.');
+    if (this.#validate(id)) return console.log('존재하지 않는 ID 입니다.');
 
     this.#todos = this.#todos.filter((todo) => {
       if (parseInt(id) === todo.id) {
@@ -80,7 +80,7 @@ class Todo {
       return true;
     });
 
-    this._divideStatus();
+    this.#divideStatus();
     console.log(`${name} ${type}가 목록에서 삭제됐습니다`);
 
     return this.printAll();
@@ -90,7 +90,7 @@ class Todo {
     let name = '';
     id = parseInt(id);
 
-    if (this._validate(id)) return console.log('존재하지 않는 ID 입니다.');
+    if (this.#validate(id)) return console.log('존재하지 않는 ID 입니다.');
 
     this.#todos.forEach((todo) => {
       if (todo.id === id) {
@@ -101,7 +101,7 @@ class Todo {
       }
     });
 
-    this._divideStatus();
+    this.#divideStatus();
     console.log(`${name}가 ${type}으로 상태가 변경됐습니다`);
 
     return this.printAll();

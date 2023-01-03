@@ -1,5 +1,5 @@
 const { numOfStatus } = require('../util/util');
-const { STATUS, STATUS_IDX, MESSAGE } = require('../constants');
+const { STATUS_IDX, MESSAGE } = require('../constants');
 function printAddMessage(name, id) {
   console.log(MESSAGE.ADD_MESSAGE(name, id));
 }

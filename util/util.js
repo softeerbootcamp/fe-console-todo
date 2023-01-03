@@ -1,4 +1,4 @@
-const { STATUS, STATUS_IDX, MESSAGE } = require('../constants');
+const { STATUS } = require('../constants');
 const { commandValidator } = require('../validator');
 function parseCommand(cmd) {
   const cmdArr = cmd.split('$');

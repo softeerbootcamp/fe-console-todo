@@ -1,5 +1,4 @@
 const { findIdx } = require('./util');
-const { MESSAGE } = require('../constants');
 const { idValidator } = require('../validator');
 const {
   printCurrentStatus,

@@ -1,5 +1,6 @@
 const { findIdx } = require('./util');
 const { MESSAGE } = require('../constants');
+const { idValidator } = require('../validator');
 const {
   printCurrentStatus,
   printDeleteMessage,
@@ -8,13 +9,12 @@ const {
 function handleDelete(todos, middle) {
   const id = parseInt(middle);
   const idx = findIdx(todos, id);
+  idValidator(idx);
   const name = todos[idx].name;
   const status = todos[idx].status;
 
-  if (idx !== -1) {
-    todos.splice(idx, 1);
-    printDeleteMessage(name, status);
-  }
+  todos.splice(idx, 1);
+  printDeleteMessage(name, status);
   printCurrentStatus(todos);
 }
 

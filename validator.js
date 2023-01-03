@@ -23,4 +23,7 @@ function statusValidator(status) {
     throw new Error(ERROR.INVALID_STATUS);
 }
 
-module.exports = { commandValidator, statusValidator };
+function idValidator(idx) {
+  if (idx === -1) throw new Error(ERROR.ID_NOT_EXIST);
+}
+module.exports = { commandValidator, statusValidator, idValidator };

@@ -31,6 +31,7 @@ const STATUS_IDX = {
 const ERROR = {
   INVALID_COMMAND: '[ERROR] 명령어가 잘못되었습니다.\n',
   INVALID_STATUS: '[ERROR] 잘못된 상태를 입력하였습니다.\n',
+  ID_NOT_EXIST: '[ERROR] 아이디가 존재하지 않습니다\n',
 };
 
 module.exports = { MESSAGE, COMMAND, STATUS, STATUS_IDX, ERROR };

@@ -14,7 +14,7 @@ function handleAdd(todos, name, tags) {
   printCurrentStatus(todos);
 }
 
-function parseTags(tags) {
+function parseTags(tags = '') {
   tags = tags.replaceAll('[', '');
   tags = tags.replaceAll(']', '');
   tags = tags.replaceAll('"', '');

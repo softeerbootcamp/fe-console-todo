@@ -7,7 +7,6 @@ const { handleDelete } = require('./util/deleteUtil');
 const { handleUpdate } = require('./util/updateUtil');
 
 const todos = require('./todos');
-const { commandValidator } = require('./validator');
 
 function play() {
   readCommand(MESSAGE.ENTER_COMMAND, (cmd) => {

@@ -16,7 +16,7 @@ reader.prompt();
 
 reader.on("line", (line) => {
     if(line == "exit"){
-        reader.close();
+        reader.close(); 
     }
 
     // 사용자 input 파싱하여 배열 저장

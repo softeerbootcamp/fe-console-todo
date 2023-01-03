@@ -5,7 +5,7 @@ const reader = readline.createInterface({
     output: process.stdout,
 });
 
-reader.setPrompt('명령하세요: ("exit" to fisnish) ');
+reader.setPrompt('명령하세요 ("exit" to fisnish) : ');
 reader.prompt();
 
 reader.on("line", (line) => {

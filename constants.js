@@ -14,6 +14,7 @@ const COMMAND = {
   DELETE: 'delete',
   UPDATE: 'update',
   ALL: 'all',
+  QUIT: 'quit',
 };
 
 const STATUS = {
@@ -32,6 +33,12 @@ const ERROR = {
   INVALID_COMMAND: '[ERROR] 명령어가 잘못되었습니다.\n',
   INVALID_STATUS: '[ERROR] 잘못된 상태를 입력하였습니다.\n',
   ID_NOT_EXIST: '[ERROR] 아이디가 존재하지 않습니다\n',
+  NAME_NOT_EXIST: '[ERROR] 이름이 존재하지 않습니다.\n',
+  INVALID_TAGS: '[ERROR] 태그 형식이 잘못되었습니다.\n',
+  INVALID_BRACKET: '[ERROR] 배열 형식이 아닙니다.\n',
+  INVALID_QUOTE: '[ERROR] 따옴표를 대칭으로 입력해주세요.\n',
 };
 
-module.exports = { MESSAGE, COMMAND, STATUS, STATUS_IDX, ERROR };
+const NOT_FOUND = -1;
+
+module.exports = { MESSAGE, COMMAND, STATUS, STATUS_IDX, ERROR, NOT_FOUND };

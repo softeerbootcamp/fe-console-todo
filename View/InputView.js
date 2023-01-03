@@ -1,4 +1,4 @@
-const readline = require("readline");
+const readline = require('readline');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -10,4 +10,8 @@ function readCommand(msg, callback) {
   rl.question(msg, callback);
 }
 
-module.exports = { readCommand };
+function quit() {
+  process.exit();
+}
+
+module.exports = { readCommand, quit };

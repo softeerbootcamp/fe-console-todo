@@ -1,7 +1,7 @@
 const { STATUS } = require('../constants');
 const { printCurrentStatus } = require('../View/OutputView');
 const { printAddMessage } = require('../View/OutputView');
-const { addValidator } = require('../validator');
+const { addValidator, getTagArrayWithoutBracket } = require('../validator');
 function handleAdd(todos, name, tags) {
   addValidator(name, tags);
   const id = getRandom(todos);
@@ -16,10 +16,9 @@ function handleAdd(todos, name, tags) {
 }
 
 function parseTags(tags) {
-  tags = tags.slice(1, -1);
-  tagArr = tags.split(',');
-  tagArr = tagArr.map((ele) => ele.trim().slice(1, -1));
-  return tagArr;
+  tagArr = getTagArrayWithoutBracket(tags);
+  tagArrWithoutQuote = tagArr.map((ele) => ele.trim().slice(1, -1));
+  return tagArrWithoutQuote;
 }
 
 function getRandom(todos) {

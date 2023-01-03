@@ -1,4 +1,5 @@
 const { COMMAND, ERROR, STATUS, NOT_FOUND } = require('./constants');
+const { bracketReg, singleQuoteReg, doubleQuoteReg } = require('./regex');
 function commandValidator(cmd) {
   if (
     !(
@@ -30,18 +31,27 @@ function idValidator(idx) {
 
 function addValidator(name, tags) {
   if (!name) throw new Error(ERROR.NAME_NOT_EXIST);
-  const bracketReg = new RegExp(/^\[.*\]$/);
-  const singleQuoteReg = new RegExp(/^\'.+\'$/);
-  const doubleQuoteReg = new RegExp(/^\".+\"$/);
+  bracketValidator(tags);
 
+  const tagArray = getTagArrayWithoutBracket(tags);
+  tagQuoteValidator(tagArray);
+}
+
+function getTagArrayWithoutBracket(tags) {
+  return tags.slice(1, -1).split(',');
+}
+
+function bracketValidator(tags) {
   const hasBracket = bracketReg.test(tags);
   if (!hasBracket) throw new Error(ERROR.INVALID_BRACKET);
+}
 
-  const tagArr = tags.slice(1, -1).split(',');
-  tagArr.forEach((ele) => {
+function tagQuoteValidator(tagArray) {
+  tagArray.forEach((ele) => {
+    const trimedTag = ele.trim();
     if (
       ele &&
-      !(singleQuoteReg.test(ele.trim()) || doubleQuoteReg.test(ele.trim()))
+      !(singleQuoteReg.test(trimedTag) || doubleQuoteReg.test(trimedTag))
     )
       throw new Error(ERROR.INVALID_QUOTE);
   });
@@ -52,4 +62,5 @@ module.exports = {
   statusValidator,
   idValidator,
   addValidator,
+  getTagArrayWithoutBracket,
 };

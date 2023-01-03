@@ -3,7 +3,7 @@ const { commandValidator } = require('../validator');
 function parseCommand(cmd) {
   const cmdArr = cmd.split('$');
   const [command] = cmdArr;
-  commandValidator(command); // TODO: constant로 바꾸기
+  commandValidator(command);
   return cmdArr;
 }
 

@@ -4,7 +4,6 @@ var delete_ = require("./functions/delete");
 
 add.item('피아노 공부',['music','cheap'])
 show.all()
-delete_.item(121)
-console.log("-------")
+delete_.item(312323)
 show.all()
 console.log("hello world")

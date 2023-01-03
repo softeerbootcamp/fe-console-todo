@@ -1,6 +1,9 @@
 const { STATUS, STATUS_IDX, MESSAGE } = require('../constants');
+const { commandValidator } = require('../validator');
 function parseCommand(cmd) {
-  return cmd.split('$');
+  const cmdArr = cmd.split('$');
+  commandValidator(cmdArr[0]); // TODO: constant로 바꾸기
+  return cmdArr;
 }
 
 function numOfStatus(todos) {

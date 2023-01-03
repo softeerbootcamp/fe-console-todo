@@ -6,7 +6,7 @@ function statusIndex(givenList, status) {
     if(givenList.length) {
         process.stdout.write(" : ");
 
-        process.stdout.write(givenList.join(" , "))
+        process.stdout.write(givenList.join(" , "));
     }
 
     console.log('');

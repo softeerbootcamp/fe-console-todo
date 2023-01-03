@@ -1,8 +1,9 @@
-const { STATUS, MESSAGE, MAX_TODOS } = require('../constants');
+const { STATUS } = require('../constants');
 const { printCurrentStatus } = require('../View/OutputView');
 const { printAddMessage } = require('../View/OutputView');
-
+const { addValidator } = require('../validator');
 function handleAdd(todos, name, tags) {
+  addValidator(name, tags);
   const id = getRandom(todos);
   todos.push({
     name,
@@ -14,11 +15,11 @@ function handleAdd(todos, name, tags) {
   printCurrentStatus(todos);
 }
 
-function parseTags(tags = '') {
-  tags = tags.replaceAll('[', '');
-  tags = tags.replaceAll(']', '');
-  tags = tags.replaceAll('"', '');
-  return tags.split(',');
+function parseTags(tags) {
+  tags = tags.slice(1, -1);
+  tagArr = tags.split(',');
+  tagArr = tagArr.map((ele) => ele.trim().slice(1, -1));
+  return tagArr;
 }
 
 function getRandom(todos) {

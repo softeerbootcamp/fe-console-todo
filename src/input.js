@@ -14,7 +14,7 @@ const input = async () => {
     query = await prompt('명령 하세요 : ');
 
     if (query === '0') throw '종료 되었습니다.';
-    else if (!inputValidate(query)) throw '입력값이 올바르지 않습니다.';
+    else if (!inputValidate(query)) throw '[ERROR] 입력값이 올바르지 않습니다.';
   } catch (e) {
     console.log(e);
 

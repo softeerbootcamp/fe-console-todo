@@ -1,6 +1,9 @@
-const { findIdx } = require("./util");
-const { MESSAGE } = require("../constants");
-const { printCurrentStatus } = require("./util");
+const { findIdx } = require('./util');
+const { MESSAGE } = require('../constants');
+const {
+  printCurrentStatus,
+  printDeleteMessage,
+} = require('../View/OutputView');
 
 function handleDelete(todos, middle) {
   const id = parseInt(middle);
@@ -10,7 +13,7 @@ function handleDelete(todos, middle) {
 
   if (idx !== -1) {
     todos.splice(idx, 1);
-    console.log(MESSAGE.DELETE_MESSAGE(name, status));
+    printDeleteMessage(name, status);
   }
   printCurrentStatus(todos);
 }

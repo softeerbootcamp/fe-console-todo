@@ -40,8 +40,13 @@ function showUpdateResult(pastStatus,statusName){
     console.log(msg)
 }
 
+function wrongStatus(){
+    console.log('잘못된 status 입니다.')
+}
+
 module.exports.showCurrentStatus = showCurrentStatus;
 module.exports.showThisStatus = showThisStatus;
 module.exports.showAddResult = showAddResult;
 module.exports.showDeleteResult = showDeleteResult;
 module.exports.showUpdateResult = showUpdateResult;
+module.exports.wrongStatus = wrongStatus;

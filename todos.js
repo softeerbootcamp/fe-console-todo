@@ -1,4 +1,4 @@
-let todo_arr =  [ {
+let todos =  [ {
 	'name' : '자바스크립트 공부하기', 
 	'tags' : ['programming', 'javascript'],
 	'status' : 'todo',
@@ -32,7 +32,7 @@ let todo_arr =  [ {
 
 const [TODO, DOING, DONE] = ['todo', 'doing', 'done']
 
-exports.todo_arr = todo_arr;
+exports.todos = todos;
 exports.TODO = TODO;
 exports.DOING = DOING;
 exports.DONE = DONE;

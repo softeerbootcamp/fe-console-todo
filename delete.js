@@ -1,10 +1,10 @@
-let { todo_arr } = require("./todos");
+let { todos } = require("./todos");
 
 function del_el(input){
-    let findValue = todo_arr.findIndex((tmp) => tmp.id === Number(input[1]))
-    let del_elem = todo_arr.filter(tmp => tmp.id === Number(input[1]));
+    let findValue = todos.findIndex((tmp) => tmp.id === Number(input[1]))
+    let del_elem = todos.filter(tmp => tmp.id === Number(input[1]));
 
-    todo_arr.splice(findValue,1);
+    todos.splice(findValue,1);
     return del_elem;
 }
 
@@ -27,4 +27,4 @@ function delete_input(input){
 }
 
 module.exports.delete = delete_input;
-module.exports.del_el = del_el;
+module.exports.del_el = del_el; 

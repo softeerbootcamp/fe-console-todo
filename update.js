@@ -1,4 +1,4 @@
-let { todo_arr, TODO, DOING, DONE } = require("./todos");
+let { todos, TODO, DOING, DONE } = require("./todos");
 
 function update_input(input){
     let update_elem = require("./delete").del_el(input);
@@ -14,7 +14,7 @@ function update_input(input){
     }
 
     update_elem[0].status = input[2];
-    todo_arr.push(update_elem[0]);
+    todos.push(update_elem[0]);
 
     process.stdout.write(update_elem[0].name + " " + update_elem[0].status + "으로 상태가 변경됐습니다.\n");
 

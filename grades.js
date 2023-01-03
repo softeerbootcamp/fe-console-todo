@@ -13,7 +13,7 @@ const rl = readline.createInterface({
 });
 
 function getInput(){
-    rl.question('명령하세요 ', (line) => {
+    rl.question('명령하세요 : ', (line) => {
         if (line=='exit'){
             rl.close();
             rl.on('close',function(){

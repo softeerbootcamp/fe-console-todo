@@ -1,7 +1,7 @@
 // var show = require("./functions/show");
 // var add = require("./functions/add");
 // var update = require("./functions/update");
-// var delete_ = require("./functions/delete");
+var delete_ = require("./functions/delete");
 // var io = require("./io/ioException");
 var input = require("./io/input");
 
@@ -18,7 +18,7 @@ console.log(a)
 // show.thisStatus('todo')
 // update.stauts(121,'doing')
 
-// delete_.item(312324)
+delete_.item(121)
 // show.thisStatus('todo')
 // io.isValidCommand('done')
 // io.isValidStatus('done')

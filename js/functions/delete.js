@@ -3,7 +3,7 @@ var output = require('../io/output')
 function item(idNumber) {
     // const itemIndex = binarySearch(idNumber, 0, data.todos.length - 1);
     const itemIndex = data.binarySearch(idNumber)
-    const itemName = data.todos[itemIndex].name
+    const itemName = data.todos[itemIndex].id
     const statusName = data.todos[itemIndex].status
     output.showDeleteResult(itemName,statusName)
     data.currentStatus[statusName] -= 1

@@ -1,6 +1,6 @@
 var data = require('../data')
 var output = require('../io/output')
-function stauts(idNumber, statusName) {
+function status(idNumber, statusName) {
     
     const itemIndex = data.binarySearch(idNumber)
     const pastStatus = data.todos[itemIndex].status
@@ -15,4 +15,4 @@ function stauts(idNumber, statusName) {
    // console.log('해당 ID의 할것이 없습니다.')
 }
 
-module.exports.stauts = stauts;
+module.exports.status = status;

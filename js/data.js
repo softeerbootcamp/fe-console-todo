@@ -42,7 +42,7 @@ function binarySearch(target){
         // 가운데 인덱스
         mid = Math.floor((left + right) / 2);
 
-        if (todos[mid]['id'] === target) {
+        if (todos[mid]['id'] == target) {
             return mid;
         }
 

@@ -14,6 +14,7 @@ const COMMAND = {
   DELETE: 'delete',
   UPDATE: 'update',
   ALL: 'all',
+  QUIT: 'quit',
 };
 
 const STATUS = {

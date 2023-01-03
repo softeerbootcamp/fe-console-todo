@@ -1,4 +1,4 @@
-const { readCommand } = require('./View/InputView');
+const { readCommand, quit } = require('./View/InputView');
 const { MESSAGE, COMMAND } = require('./constants');
 const { parseCommand } = require('./util/util');
 const { handleShow } = require('./util/showUtil');
@@ -12,6 +12,7 @@ function play() {
   readCommand(MESSAGE.ENTER_COMMAND, (cmd) => {
     try {
       const [command, middle, tags] = parseCommand(cmd);
+      if (command === COMMAND.QUIT) quit();
       if (command === COMMAND.SHOW) handleShow(todos, middle);
       if (command === COMMAND.ADD) handleAdd(todos, middle, tags);
       if (command === COMMAND.DELETE) handleDelete(todos, middle);

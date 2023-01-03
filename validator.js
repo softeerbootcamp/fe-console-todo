@@ -5,7 +5,8 @@ function commandValidator(cmd) {
       cmd === COMMAND.SHOW ||
       cmd === COMMAND.ADD ||
       cmd === COMMAND.DELETE ||
-      cmd === COMMAND.UPDATE
+      cmd === COMMAND.UPDATE ||
+      cmd === COMMAND.QUIT
     )
   )
     throw new Error(ERROR.INVALID_COMMAND);
@@ -26,4 +27,5 @@ function statusValidator(status) {
 function idValidator(idx) {
   if (idx === -1) throw new Error(ERROR.ID_NOT_EXIST);
 }
+
 module.exports = { commandValidator, statusValidator, idValidator };

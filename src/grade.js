@@ -9,16 +9,16 @@ const playTodo = async () => {
 
   while (true) {
     const query = await input();
-    const [command, type, tags] = [...query];
+    const [command, typeOrId, tagOrStatus] = [...query];
 
     if (command === 'show') {
-      type === 'all' ? TodoList.printAll() : TodoList.printType(type);
+      typeOrId === 'all' ? TodoList.printAll() : TodoList.printType(typeOrId);
     } else if (command === 'add') {
-      TodoList.add(type, tags);
+      TodoList.add(typeOrId, tagOrStatus);
     } else if (command === 'delete') {
-      TodoList.remove(type);
+      TodoList.remove(typeOrId);
     } else if (command === 'update') {
-      TodoList.update(type, tags);
+      TodoList.update(typeOrId, tagOrStatus);
     }
   }
 };

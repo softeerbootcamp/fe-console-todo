@@ -1,13 +1,25 @@
 var data = require('../data')
+var output = require('../io/output')
+
 function item(itemName, tagNames) {
+    const id = addItem(itemName, tagNames)
+    output.showAddResult(itemName,id)
+    output.showCurrentStatus()
+
+}
+
+
+const addItem = (itemName, tagNames) => {
+    const id = generateIdNumber()
     data.todos.push({
         'name': itemName,
         'tags': tagNames,
         'status': 'todo',
-        'id': generateIdNumber()
+        'id': id
     })
+    data.currentStatus['todo'] += 1
+    return id
 }
-
 
 const generateIdNumber = () => {
     let id = 0;

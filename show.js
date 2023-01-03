@@ -10,17 +10,9 @@ function show(word){
         if (num==0){console.log(`${word}리스트: 총 ${num}건 `);}
         else{process.stdout.write(`${word}리스트: 총 ${num}건 : `);}
         
-        todos.map(item => {
-            if (item['status'] === word) {
-                if (num==1){
-                    console.log(` '${item['name']}, ${item['id']}번' `);
-                }
-                else{
-                    process.stdout.write(` '${item['name']}, ${item['id']}번' ,`);
-                    num--;
-                }
-            }
-            });
+        var categoryList= todos.filter(item=>item['status'] === word)
+        .map(item => {return `'${item['name']}, ${item['id']}번'`;});
+        console.log(`${categoryList.join(', ')}`);
     }
 }
 

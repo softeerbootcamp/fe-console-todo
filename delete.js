@@ -11,7 +11,7 @@ function remove(arr,id){
             show('all');
             check++;
             }
-      });
+        });
     if (check==0){
         console.log('일치하는 id가 없습니다.')
     }

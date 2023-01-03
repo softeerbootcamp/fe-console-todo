@@ -11,7 +11,9 @@ update.stauts(121,'doing')
 
 delete_.item(312324)
 show.thisStatus('todo')
+io.isValidCommand('done')
 io.isValidStatus('done')
+io.isValidIndex(2)
 // console.log("-------")
 // show.all()
 

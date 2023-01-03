@@ -40,8 +40,14 @@ function showUpdateResult(pastStatus,statusName){
     console.log(msg)
 }
 
-function wrongStatus(){
-    console.log('잘못된 status 입니다.')
+function wrongCommand(command){
+    console.log(command+'는 잘못된 명령어입니다.')
+}
+function wrongStatus(status){
+    console.log(status+'는 잘못된 status 입니다.')
+}
+function wrongIndex(index){
+    console.log('입력된 id는 리스트에 없는 id입니다.')
 }
 
 module.exports.showCurrentStatus = showCurrentStatus;
@@ -49,4 +55,6 @@ module.exports.showThisStatus = showThisStatus;
 module.exports.showAddResult = showAddResult;
 module.exports.showDeleteResult = showDeleteResult;
 module.exports.showUpdateResult = showUpdateResult;
+module.exports.wrongCommand = wrongCommand;
 module.exports.wrongStatus = wrongStatus;
+module.exports.wrongIndex = wrongIndex;

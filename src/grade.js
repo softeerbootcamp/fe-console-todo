@@ -2,8 +2,6 @@ const todos = require('./todos');
 const input = require('./input');
 const Todo = require('./Todo');
 
-const TodoList = new Todo(todos);
-
 const playTodo = async () => {
   console.log('종료를 원하시면 0을 입력하세요!');
 
@@ -23,4 +21,5 @@ const playTodo = async () => {
   }
 };
 
+const TodoList = new Todo(todos);
 playTodo();

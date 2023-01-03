@@ -4,26 +4,20 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-
-let type = [];
-
+const prompt = (query) => new Promise((resolve) => rl.question(query, resolve));
 const input = async () => {
-  console.log('명령하세요 : ');
+  let query = '';
 
-  await rl.on('line', (line) => {
-    type = line.split('$').map((str) => str);
+  try {
+    query = await prompt('명령 하세요 : ');
     rl.close();
-  });
+  } catch (e) {
+    console.error(e);
+  }
 
-  return type;
+  query = query.split('$').map((str) => str);
+
+  return query;
 };
 
-const output = (text) => {
-
-  rl.on('close', () => {
-    console.log(text);
-    process.exit();
-  });
-};
-
-module.exports = { input, output };
+module.exports = input;

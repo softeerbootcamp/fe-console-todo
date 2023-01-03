@@ -1,5 +1,6 @@
 const Command = require("./Command");
 const {MalformedFirstArgument} = require("../TodoErrors");
+const { showOptions, statusTypes } = require("../Constants");
 
 class ShowCommand extends Command {
     constructor(arg1, arg2) {
@@ -9,14 +10,14 @@ class ShowCommand extends Command {
     execute(todos, callback) {
         const arg1 = this.getArg1();
         let result;
-        if (arg1 === 'all') {
+        if (arg1 === showOptions.ALL) {
             result = getShowAllResult(todos);
-        } else if (arg1 === 'todo') {
-            result = getShowResult(todos, 'todo');
-        } else if (arg1 === 'doing') {
-            result = getShowResult(todos, 'doing');
-        } else if (arg1 === 'done') {
-            result = getShowResult(todos, 'done');
+        } else if (arg1 === showOptions.TODO) {
+            result = getShowResult(todos, statusTypes.TODO);
+        } else if (arg1 === showOptions.DOING) {
+            result = getShowResult(todos, statusTypes.DOING);
+        } else if (arg1 === showOptions.DONE) {
+            result = getShowResult(todos, statusTypes.DONE);
         } else {
             throw MalformedFirstArgument;
         }
@@ -27,11 +28,11 @@ class ShowCommand extends Command {
 function getShowAllResult(todos) {
     let todoCnt =0, doingCnt=0, doneCnt=0;
     todos.forEach(({status}) => {
-        if(status === "todo") {
+        if(status === statusTypes.TODO) {
             todoCnt++;
-        }else if(status === "doing") {
+        }else if(status === statusTypes.DOING) {
             doingCnt++;
-        }else if(status === "done") {
+        }else if(status === statusTypes.DONE) {
             doneCnt++;
         }
     });

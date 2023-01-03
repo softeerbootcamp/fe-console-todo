@@ -1,9 +1,10 @@
-const {Console} = require("@woowacourse/mission-utils");
+const { Console } = require("@woowacourse/mission-utils");
 
 const OutputView = {
     printResult(result) {
         Console.print(result);
     },
+
     printError(e) {
         Console.print(e);
     }

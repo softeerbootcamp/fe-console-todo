@@ -1,21 +1,18 @@
-const { ShowCommand } = require("./Commands/Show");
-const DeleteCommand = require("./Commands/Delete")
-const AddCommand = require("./Commands/Add")
+const { ShowCommand, DeleteCommand, UpdateCommand, AddCommand } = require("./commands/Modules");
 const { UnknownCommandError } = require("./TodoErrors");
-const UpdateCommand = require("./Commands/Update");
+const { commandTypes } = require("./Constants");
 
 const CommandController = {
     buildCommand(commandType, arg1, arg2) {
-        if (commandType == 'show') {
+        if (commandType == commandTypes.SHOW) {
             return new ShowCommand(arg1, arg2);
-        } else if(commandType === 'delete') {
+        } else if(commandType === commandTypes.DELETE) {
             return new DeleteCommand(arg1,arg2);
-        } else if(commandType === 'update') {
+        } else if(commandType === commandTypes.UPDATE) {
             return new UpdateCommand(arg1, arg2);
-        }else if(commandType === 'add') {
+        }else if(commandType === commandTypes.ADD) {
             return new AddCommand(arg1, arg2);
-        }
-        else {
+        } else {
             throw UnknownCommandError;
         }
     }

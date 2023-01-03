@@ -1,5 +1,6 @@
 const Command = require("./Command");
-const {getShowAllResult} = require("./Show");
+const { getShowAllResult } = require("./Show");
+const { findTodoIdx } = require("./Utils");
 
 class DeleteCommand extends Command {
     constructor(arg1, arg2) {
@@ -8,24 +9,26 @@ class DeleteCommand extends Command {
 
     execute(todos, callback) {
         const idCondition = parseInt(this.getArg1());
-        let foundIdx, result;
-        todos.forEach(({id},idx) => {
-            if(id === idCondition) {
-                foundIdx = idx;
-            } 
-        })
-
-        if(foundIdx !== undefined) {
-            const {name, status} = todos.splice(foundIdx, 1)[0];
-            result = `${name} ${status}(이)가 목록에서 삭제됐습니다\n`;
-        } else {
-            result = `(id : ${idCondition})은 목록에 없습니다\n`;
-        }
+        vailidateArg(idCondition);
+        let result = deleteAndGetResult(todos, idCondition);
         result += getShowAllResult(todos);
-        
         callback(result);
     }
 }
 
+function vailidateArg(idCondition) {
+    if (Number.isNaN(idCondition)) {
+        throw MalformedFirstArgument;
+    }
+}
+
+function deleteAndGetResult(todos, id) {
+    const foundIdx = findTodoIdx(todos, id);
+    if (foundIdx === undefined) {
+        return `(id : ${id})은 목록에 없습니다\n`;
+    }
+    const {name, status} = todos.splice(foundIdx, 1)[0];
+    return `${name} ${status}(이)가 목록에서 삭제됐습니다\n`;
+}
 
 module.exports = DeleteCommand;

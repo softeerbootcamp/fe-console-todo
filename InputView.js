@@ -1,4 +1,4 @@
-const {Console} = require("@woowacourse/mission-utils");
+const { Console } = require("@woowacourse/mission-utils");
 const CommandController = require("./CommandController");
 const OutputView = require("./OutputView");
 

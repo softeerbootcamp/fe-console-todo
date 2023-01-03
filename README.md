@@ -63,6 +63,15 @@ dictionary 선언 → const currentStatus = { todo: 0, doing: 0, done: 0 }
 
 todos 내부 객체 → class Item: name, tags, status, id
 
+
+# 5. 예외 처리
+
+- 잘못된 명령어일 경우
+    - show, add, delete, update, all 이외에 명령어인 경우
+- 3가지 status(todo, doing, done)이외에 명령어를 입력한 경우
+- update또는 delete시에 todos 배열에 없는 id를 요청할 경우
+- update시에 tag에 배열을 입력하지 않은 경우
+
 [https://www.npmjs.com/package/array-tools](https://www.npmjs.com/package/array-tools)
 배열 처리 패키지
 

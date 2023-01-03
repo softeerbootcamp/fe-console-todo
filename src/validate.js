@@ -1,6 +1,6 @@
 const inputValidate = (query) => {
   const showRe = /^show\$(all|todo|doing|done)$/;
-  const addRe = /^add\$.+\$\[\".+\"\]$/;
+  const addRe = /^add\$.+\$\[(?:(['"])*\w*\1)\s*(?:\,\s*\1\w*\1)*\]$/; 
   const deleteRe = /^delete\$[0-9]+$/;
   const updateRe = /^update\$[0-9]+\$(todo|doing|done)$/;
 

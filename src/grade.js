@@ -23,4 +23,5 @@ const playTodo = async () => {
   }
 };
 
+const TodoList = new Todo(todos);
 playTodo();

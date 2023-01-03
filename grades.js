@@ -6,7 +6,7 @@ const todos=require('./todos.js');
 
 
 const readline = require("readline");
- 
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -37,7 +37,11 @@ function getInput(){
             //update
             else if(str[0]=='update'){
                 update(todos,str[1],str[2]);
-        }
+            }
+            //다른 입력이 들어왔을 때
+            else{
+                console.log("정확하게 다시 작성해주세요.");
+            }
         getInput();
         }
     });

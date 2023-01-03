@@ -1,6 +1,5 @@
 const readline = require('readline');
-
-// Todo : 입력 예외 처리 추가 예정
+const inputValidate = require('./validate');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -13,19 +12,23 @@ const input = async () => {
 
   try {
     query = await prompt('명령 하세요 : ');
-    if (query === '0') rl.close();
+
+    if (query === '0') throw '종료 되었습니다.';
+    else if (!inputValidate(query)) throw '입력값이 올바르지 않습니다.';
   } catch (e) {
-    console.error(e);
+    console.log(e);
+
+    if (e === '종료 되었습니다.') {
+      rl.close();
+      process.exit(0);
+    } else {
+      return query;
+    }
   }
 
   query = query.split('$').map((str) => str);
-  rl.on('close', () => process.exit(0));
 
   return query;
 };
-
-// const validateQuery = () => {
-
-// };
 
 module.exports = input;

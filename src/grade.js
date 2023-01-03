@@ -8,8 +8,8 @@ const playTodo = async () => {
   console.log('종료를 원하시면 0을 입력하세요!');
 
   while (true) {
-    let query = await input();
-    let [command, type, tags] = [...query];
+    const query = await input();
+    const [command, type, tags] = [...query];
 
     if (command === 'show') {
       type === 'all' ? TodoList.printAll() : TodoList.printType(type);
@@ -17,7 +17,7 @@ const playTodo = async () => {
       TodoList.add(type, tags);
     } else if (command === 'delete') {
       TodoList.remove(type);
-    } else {
+    } else if (command === 'update') {
       TodoList.update(type, tags);
     }
   }

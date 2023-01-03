@@ -9,7 +9,7 @@ function handleAdd(todos, name, tags) {
     status: STATUS.TODO,
     id,
   });
-  console.log(MESSAGE.ADD_MESSEAGE(name, id));
+  console.log(MESSAGE.ADD_MESSAGE(name, id));
   printCurrentStatus(todos);
 }
 

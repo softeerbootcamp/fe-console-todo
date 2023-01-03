@@ -13,4 +13,25 @@
     }
 ]
 
+const currentStatus = {
+    todo: 0, doing: 0, done: 0
+}
+
+for (i in todos) {
+    switch (todos[i].status) {
+        case 'todo':
+            currentStatus.todo += 1
+            break
+        case 'doing':
+            currentStatus.doing += 1
+            break
+        case 'done':
+            currentStatus.done += 1
+            break
+        default:
+            console.log("ERROR: STATUS IN TODOS WRONG")
+    }
+}
+
 module.exports.todos = todos
+module.exports.currentStatus = currentStatus

@@ -5,14 +5,14 @@ function item(idNumber) {
     //isValidIdNumber(itemIndex);
     data.todos.splice(itemIndex, 1);
 }
-const search = (target) => {
-    for (i in data.todos) {
-        if (data.todos[i]['id'] == target) {
-            return i
-        }
-    }
-    return -1;
-}
+// const search = (target) => {
+//     for (i in data.todos) {
+//         if (data.todos[i]['id'] == target) {
+//             return i
+//         }
+//     }
+//     return -1;
+// }
 const binarySearch = (target, left, right) => {
     let mid = 0;
 

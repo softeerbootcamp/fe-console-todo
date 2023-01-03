@@ -1,17 +1,9 @@
-const { STATUS, STATUS_IDX, MESSAGE } = require("../constants");
+const { STATUS, STATUS_IDX, MESSAGE } = require('../constants');
+const { commandValidator } = require('../validator');
 function parseCommand(cmd) {
-  return cmd.split("$");
-}
-
-function printCurrentStatus(todos) {
-  const statusAmount = numOfStatus(todos);
-  console.log(
-    `${MESSAGE.CURRENT_STATUS} todo: ${
-      statusAmount[STATUS_IDX.TODO]
-    }개, doing:${statusAmount[STATUS_IDX.DOING]}개, done:${
-      statusAmount[STATUS_IDX.DONE]
-    }개`
-  );
+  const cmdArr = cmd.split('$');
+  commandValidator(cmdArr[0]); // TODO: constant로 바꾸기
+  return cmdArr;
 }
 
 function numOfStatus(todos) {
@@ -25,4 +17,4 @@ function findIdx(todos, id) {
   return todos.findIndex((ele) => ele.id === id);
 }
 
-module.exports = { printCurrentStatus, parseCommand, findIdx };
+module.exports = { parseCommand, findIdx, numOfStatus };

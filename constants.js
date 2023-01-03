@@ -1,5 +1,5 @@
 const MESSAGE = {
-  ENTER_COMMAND: '명령하세요 :',
+  ENTER_COMMAND: '명령하세요 : ',
   CURRENT_STATUS: '현재상태 :',
   TODO_LIST: 'todo리스트 :',
   ADD_MESSAGE: (name, id) => `${name} 1개가 추가됐습니다. (id : ${id})`,
@@ -20,6 +20,7 @@ const STATUS = {
   TODO: 'todo',
   DOING: 'doing',
   DONE: 'done',
+  ALL: 'all',
 };
 const STATUS_IDX = {
   TODO: 0,
@@ -27,4 +28,10 @@ const STATUS_IDX = {
   DONE: 2,
 };
 
-module.exports = { MESSAGE, COMMAND, STATUS, STATUS_IDX };
+const ERROR = {
+  INVALID_COMMAND: '[ERROR] 명령어가 잘못되었습니다.\n',
+  INVALID_STATUS: '[ERROR] 잘못된 상태를 입력하였습니다.\n',
+  ID_NOT_EXIST: '[ERROR] 아이디가 존재하지 않습니다\n',
+};
+
+module.exports = { MESSAGE, COMMAND, STATUS, STATUS_IDX, ERROR };

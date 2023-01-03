@@ -1,22 +1,23 @@
-const { STATUS } = require('../constants');
-const { printCurrentStatus } = require('./util');
+const { STATUS, MESSAGE } = require("../constants");
+const { printCurrentStatus } = require("./util");
 
 function handleAdd(todos, name, tags) {
+  const id = getRandom();
   todos.push({
     name,
     tags: parseTags(tags),
     status: STATUS.TODO,
-    id: getRandom(),
+    id,
   });
-  console.log(todos);
+  console.log(MESSAGE.ADD_MESSEAGE(name, id));
   printCurrentStatus(todos);
 }
 
 function parseTags(tags) {
-  tags = tags.replaceAll('[', '');
-  tags = tags.replaceAll(']', '');
-  tags = tags.replaceAll('"', '');
-  return tags.split(',');
+  tags = tags.replaceAll("[", "");
+  tags = tags.replaceAll("]", "");
+  tags = tags.replaceAll('"', "");
+  return tags.split(",");
 }
 
 function getRandom() {

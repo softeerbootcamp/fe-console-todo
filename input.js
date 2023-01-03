@@ -24,8 +24,4 @@ const input = async () => {
   return query;
 };
 
-// const validateQuery = () => {
-
-// };
-
 module.exports = input;

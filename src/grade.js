@@ -3,7 +3,7 @@ const input = require('./input');
 const Todo = require('./Todo');
 
 const playTodo = async () => {
-  console.log('종료를 원하시면 0을 입력하세요!');
+  console.log('종료를 원하시면 0을 입력하세요!\n');
 
   while (true) {
     const query = await input();

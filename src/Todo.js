@@ -27,7 +27,7 @@ class Todo {
   }
 
   printAll() {
-    return console.log(`현재상태 :  todo: ${this.#todo.length}개, doing: ${this.#doing.length}, done: ${this.#done.length}`);
+    return console.log(`현재상태 : todo: ${this.#todo.length}개, doing: ${this.#doing.length}, done: ${this.#done.length}\n`);
   }
 
   printType(type) {
@@ -37,7 +37,12 @@ class Todo {
     type === 'doing' && (tmp = this.#doing);
     type === 'done' && (tmp = this.#done);
 
-    return console.log(`${type}리스트 :  총${tmp.length}건 :` + tmp.map((info) => ` '${info.name} , ${info.id}' `));
+    //prettier-ignore
+    const text = tmp.length > 0 
+                  ? `${type}리스트 : 총 ${tmp.length}건 :` + tmp.map((info) => ` '${info.name} , ${info.id}' `) + '\n'
+                  : `${type}리스트 : 총 ${tmp.length}건\n`;
+
+    return console.log(text);
   }
 
   add(name, tags) {

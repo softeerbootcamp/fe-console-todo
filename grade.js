@@ -6,7 +6,7 @@ const reader = readline.createInterface({
 });
 
 reader.setPrompt('명령하세요: ("exit" to fisnish) ');
-reader.prompt();
+reader.prompt(); 
 
 reader.on("line", (line) => {
     if(line == "exit"){

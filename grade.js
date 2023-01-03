@@ -1,3 +1,8 @@
+const showRes = require('./show');
+const updateRes = require("./update");
+const deleteRes = require('./delete');
+const addRes = require("./add");
+
 const readline = require("readline");
 
 const reader = readline.createInterface({
@@ -6,44 +11,41 @@ const reader = readline.createInterface({
 });
 
 reader.setPrompt('명령하세요: ("exit" to fisnish) ');
+
 reader.prompt(); 
 
 reader.on("line", (line) => {
     if(line == "exit"){
         reader.close();
     }
-    else{
-        const showRes = require('./show');
-        
-        // 사용자 input 파싱하여 배열 저장
-        let inputWords = line.split('$');
 
-        // show
-        if(inputWords[0]=='show'){
-            showRes.show(inputWords[1]);
-        }
-        // delete
-        else if(inputWords[0]=='delete'){
-            const deleteRes = require('./delete');
-            deleteRes.idelete(inputWords[1]);
-            showRes.show("all");
-        }
-        // update
-        else if(inputWords[0] === 'update') {
-            const updateRes = require("./update");
-            updateRes.update(inputWords[1], inputWords[2]);
-            showRes.show("all");
-        }
-        // add
-        else if(inputWords[0] === 'add'){
-            const addRes = require("./add");
-            addRes.addlist(inputWords[1], inputWords[2]);
-            showRes.show("all");
-        }
-        // except case
-        else {
-            console.log("잘못된 입력입니다. 올바르게 입력해주세요. ");
-        }
+    // 사용자 input 파싱하여 배열 저장
+    let inputWords = line.split('$');
+
+    if(inputWords.length == 1) {
+        console.log("잘못된 입력입니다. 올바르게 입력해주세요. ");
+    }
+    // show
+    else if(inputWords[0]=='show' && inputWords.length == 2){
+        showRes.show(inputWords[1]);
+    }
+    // delete
+    else if(inputWords[0]=='delete' && inputWords.length == 2){
+        deleteRes.idelete(inputWords[1]);
+        showRes.show("all");
+    }
+    // update
+    else if(inputWords[0] === 'update' && updateRes.update(inputWords[1], inputWords[2])) {
+        showRes.show("all");
+    }
+    // add
+    else if(inputWords[0] === 'add'){
+        addRes.addlist(inputWords[1], inputWords[2]);
+        showRes.show("all");
+    }
+    // except case
+    else {
+        console.log("잘못된 입력입니다. 올바르게 입력해주세요. ");
     }
 
     reader.prompt();

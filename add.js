@@ -1,5 +1,5 @@
 const todos = require('./todos.js');
-const arrCount = require('./arrCount.js');
+const show = require('./show.js');
 
 function add(name,tags){
     var timestamp = new Date().getUTCMilliseconds();
@@ -11,7 +11,7 @@ function add(name,tags){
         'id': id
     });
     console.log(name+` 1개가 추가됐습니다. (id: ${id})`);
-    console.log(`현재상태: todo: ${arrCount(todos, 'todo', 'status')}, doing: ${arrCount(todos, 'doing', 'status')}, done: ${arrCount(todos, 'done', 'status')}`);
+    show('all')
 }
 
 module.exports= add;

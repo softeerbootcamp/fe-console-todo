@@ -4,3 +4,6 @@
 - Class Todo 생성
 - Input 모듈 생성
 - main 함수 작성
+
+### TODO
+- 입력 예외처리

@@ -22,7 +22,7 @@ class Todo {
   }
 
   printAll() {
-    return `현재상태 :  todo: ${this.todo.length}개, doing: ${this.doing.length}, done: ${this.done.length}`;
+    return console.log(`현재상태 :  todo: ${this.todo.length}개, doing: ${this.doing.length}, done: ${this.done.length}`);
   }
 
   printType(type) {
@@ -32,7 +32,7 @@ class Todo {
     type === 'doing' && (tmp = this.doing);
     type === 'done' && (tmp = this.done);
 
-    return `${type}리스트 :  총${tmp.length}건 :` + tmp.map((info) => ` '${info.name} , ${info.id}' `);
+    return console.log(`${type}리스트 :  총${tmp.length}건 :` + tmp.map((info) => ` '${info.name} , ${info.id}' `));
   }
 
   add(name, tags) {
@@ -59,7 +59,7 @@ class Todo {
       type = '';
 
     this.todos = this.todos.filter((todo) => {
-      if (id === todo.id) {
+      if (parseInt(id) === todo.id) {
         name = todo.name;
         type = todo.status;
         return false;
@@ -68,15 +68,24 @@ class Todo {
     });
 
     this._divideStatus();
-
     console.log(`${name} ${type}가 목록에서 삭제됐습니다`);
 
     return this.printAll();
   }
 
   update(id, type) {
-    let name = this.todos.filter((todo) => todo.id === id);
+    let name = '';
 
+    this.todos.forEach((todo) => {
+      if (todo.id === parseInt(id)) {
+        todo.status = type;
+        name = todo.name;
+
+        return;
+      }
+    });
+
+    this._divideStatus();
     console.log(`${name}가 ${type}으로 상태가 변경됐습니다`);
 
     return this.printAll();

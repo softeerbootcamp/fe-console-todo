@@ -17,7 +17,7 @@ function update(id, changedStatus) {
 
     console.log(`해당 id : ${id}가 없습니다.`);
 
-    return false
+    return false;
 }
 
 exports.update = update;

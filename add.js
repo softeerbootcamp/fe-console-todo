@@ -5,7 +5,7 @@ function validateID() {
     let nowToSeconds = now.getTime() % 1000000;
 
     for(let i=0;i<todos.length;i++) {
-        if(todos[i].id == nowToSeconds) {
+        if(todos[i].id === nowToSeconds) {
             nowToSeconds = validateID();
             
             break;

@@ -12,15 +12,15 @@ const reader = readline.createInterface({
 
 function selectJob(job, firstParam, secondParam) {
     // delete
-    if(job == 'delete') {
+    if(job === 'delete') {
         deleteRes.idelete(firstParam);
     }
     // update
-    else if(job == 'update') {
+    else if(job === 'update') {
         updateRes.update(firstParam, secondParam)
     }
     // add
-    else if(job == 'add') {
+    else if(job === 'add') {
         addRes.addlist(firstParam, secondParam);
     }
 
@@ -32,22 +32,22 @@ reader.setPrompt('명령하세요: ("exit" to fisnish) ');
 reader.prompt(); 
 
 reader.on("line", (line) => {
-    if(line == "exit"){
+    if(line === "exit"){
         reader.close();
     }
 
     // 사용자 input 파싱하여 배열 저장
     let inputWords = line.split('$');
 
-    if(inputWords.length == 1) {
+    if(inputWords.length === 1) {
         console.log("잘못된 입력입니다. 올바르게 입력해주세요. ");
     }
     // show
-    else if(inputWords[0]=='show' && inputWords.length == 2){
+    else if(inputWords[0]=== 'show' && inputWords.length === 2){
         showRes.show(inputWords[1]);
     }
     // delete & update & add
-    else if(inputWords[0] == 'delete' || inputWords[0] == 'update' || inputWords[0] == 'add') {
+    else if(inputWords[0] === 'delete' || inputWords[0] === 'update' || inputWords[0] === 'add') {
         selectJob(inputWords[0], inputWords[1], inputWords[2]);
     }
     // except case

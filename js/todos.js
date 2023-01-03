@@ -1,33 +1,39 @@
-// var show = require("./functions/show");
-// var add = require("./functions/add");
-// var update = require("./functions/update");
-var delete_ = require("./functions/delete");
-// var io = require("./io/ioException");
-var input = require("./io/input");
+const input = require("./io/input");
+const show = require("./functions/show");
+const add = require("./functions/add");
+const delete_ = require("./functions/delete");
+const update = require("./functions/update");
+const output = require("./io/output");
 
+function play (){
+    try{
+        const inputList = input.command()
+        const command = inputList[0].toLowerCase()
+        
+        if(command==='show'){
+            const showCom = inputList[1].toLowerCase()
+            if (showCom== 'all') {
+                show.all()
+            } 
+            else {
+                show.thisStatus(showCom)
+            }
+        }        
+        else if(command === 'add'){
+            add.item(inputList[1], inputList[2])
+        }
+        else if(command === 'delete'){
+            delete_.item(inputList[1])
+        }
+        else if(command === 'update'){
+            update.status(inputList[1], inputList[2])
+        }
+        else if(command === 'quit') return
+        else output.wrongCommand(command)
+    }catch (err){
+        console.log(err.message)
+    }
+    play()
+}
 
-
-
-// let a =  
-let a = input.command()
-console.log(a)
-
-
-// add.item('피아노 공부',['music','cheap'])
-// show.all()
-// show.thisStatus('todo')
-// update.stauts(121,'doing')
-
-delete_.item(121)
-// show.thisStatus('todo')
-// io.isValidCommand('done')
-// io.isValidStatus('done')
-// io.isValidIndex(2)
-// console.log("-------")
-// show.all()
-
-// // console.log("hello world")
-
-// // var lists = input.command()
-
-// console.log('lists')
+play()

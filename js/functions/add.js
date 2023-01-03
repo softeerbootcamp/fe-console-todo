@@ -1,19 +1,23 @@
-var data = require('../data')
-var output = require('../io/output')
+const data = require('../data')
+const output = require('../io/output')
+const io = require('../io/ioException')
 
 function item(itemName, tagNames) {
-    const id = addItem(itemName, tagNames)
+    io.emptyItemNameCheck(itemName)
+    //io.tagNamesCheck(tagNames)
+    const tagList = generateTagNames(tagNames)
+    const id = addItem(itemName, tagList)
     output.showAddResult(itemName,id)
     output.showCurrentStatus()
 
 }
 
 
-const addItem = (itemName, tagNames) => {
+const addItem = (itemName, tagList) => {
     const id = generateIdNumber()
     data.todos.push({
         'name': itemName,
-        'tags': generateTagNames(tagNames),
+        'tags': tagList,
         'status': 'todo',
         'id': id
     })
@@ -25,7 +29,7 @@ const generateTagNames = (tagNames) => {
     for (i in result) {
         result[i] = result[i].substring(1, result[i].length-1)
     }
-    console.log(result)
+    //console.log(result)
 }
 
 const generateIdNumber = () => {
@@ -39,3 +43,6 @@ const getLastIdNnumber = () => {
     return data.todos[data.todos.length - 1]['id']
 }
 module.exports.item = item;
+
+
+// generateTagNames()

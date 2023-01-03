@@ -1,11 +1,13 @@
 const readlineSync = require('readline-sync');
+const io = require('./ioException')
 
 function command (){
     const inputString = getUserInput()
-    const inputList = string2List(inputString)
+    io.emptyInputCheck(inputString)
+    const inputList = string2List(inputString)        
+    io.inputListLengthCheck(inputList)
     return inputList
 }
-
 
 const getUserInput = () => {
     const input = readlineSync.question('명령하세요: ');
@@ -14,4 +16,5 @@ const getUserInput = () => {
 const string2List = (inputString) => {
     return inputString.split('$')
 }
+
 module.exports.command = command

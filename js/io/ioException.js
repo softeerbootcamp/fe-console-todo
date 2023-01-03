@@ -1,32 +1,36 @@
+const data = require('../data')
+const validCheck = require('./validation')
 
-var output = require('../io/output')
-const commandList = ['show','add','delete','update']
-const statusList = ['todo','doing','done']
-
-
-function isValidCommand(command) {
-    if(statusList.includes(commandList)){
-        return true
+function emptyInputCheck(inputString) {
+    if(validCheck.isEmptyInput(inputString)){
+        throw new Error("아무것도 입력되지 않았습니다.")
     }
-    output.wrongCommand(command)
-    return false
 }
-function isValidStatus(status) {
-    if(statusList.includes(status)){
-        return true
+function inputListLengthCheck(inputList) {
+    if(!validCheck.isValidInputsLength(inputList)){
+        throw new Error("추가 명령어를 입력해주세요.")
     }
-    output.wrongStatus(status)
-    return false
+}
+function statusCheck(statusName) {
+    if(!validCheck.isValidStatus(statusName)){
+        throw new Error("잘못된 status")
+    }
 }
 
-function isValidIndex(index){
-    if(index != -1){
-        return true
+function findIndex(idNumber) {
+    const itemIndex = data.binarySearch(idNumber)
+    if(!validCheck.isValidIndex(itemIndex)){
+        throw new Error("입력된 <"+idNumber +">는 리스트에 없는 id입니다.")
     }
-    output.wrongIndex(index)
-    return false
+    return itemIndex
 }
-
-module.exports.isValidCommand = isValidCommand;
-module.exports.isValidStatus = isValidStatus;
-module.exports.isValidIndex = isValidIndex;
+function emptyItemNameCheck(itemName) {
+    if(validCheck.isEmptyInput(itemName)){
+        throw new Error("이름이 입력되지 않았습니다.")
+    }
+}
+module.exports.emptyInputCheck = emptyInputCheck
+module.exports.inputListLengthCheck = inputListLengthCheck
+module.exports.statusCheck = statusCheck
+module.exports.findIndex = findIndex
+module.exports.emptyItemNameCheck = emptyItemNameCheck

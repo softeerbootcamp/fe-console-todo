@@ -1,4 +1,4 @@
-var data = require('../data')
+const data = require('../data')
 
 function showCurrentStatus() {
     // 현재상태: todo: 3개, doing: 2개, done: 4개
@@ -12,7 +12,7 @@ function showCurrentStatus() {
 
 function showThisStatus(statusName) {
     // 총2건 : '자바스크립트 공부하기, 1822번', 'iOS공부하기, 9933번'
-    let msg = statusName + "리스트: 총" + data.currentStatus[statusName] + "건:"
+    let msg = statusName + " 리스트: 총" + data.currentStatus[statusName] + "건:"
 
     for (i in data.todos) {
         if (data.todos[i]['status'] == statusName) {

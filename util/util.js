@@ -1,6 +1,6 @@
-const { STATUS, STATUS_IDX, MESSAGE } = require('../constants');
+const { STATUS, STATUS_IDX, MESSAGE } = require("../constants");
 function parseCommand(cmd) {
-  return cmd.split('$');
+  return cmd.split("$");
 }
 
 function printCurrentStatus(todos) {
@@ -15,10 +15,14 @@ function printCurrentStatus(todos) {
 }
 
 function numOfStatus(todos) {
-  const numOfTodo = todos.filter(ele => ele.status === STATUS.TODO).length;
-  const numOfDoing = todos.filter(ele => ele.status === STATUS.DOING).length;
-  const numOfDone = todos.filter(ele => ele.status === STATUS.DONE).length;
+  const numOfTodo = todos.filter((ele) => ele.status === STATUS.TODO).length;
+  const numOfDoing = todos.filter((ele) => ele.status === STATUS.DOING).length;
+  const numOfDone = todos.filter((ele) => ele.status === STATUS.DONE).length;
   return [numOfTodo, numOfDoing, numOfDone];
 }
 
-module.exports = { printCurrentStatus, parseCommand };
+function findIdx(todos, id) {
+  return todos.findIndex((ele) => ele.id === id);
+}
+
+module.exports = { printCurrentStatus, parseCommand, findIdx };

@@ -19,9 +19,9 @@ class Todo {
   }
 
   _validate(id) {
-    this.#todos.forEach((todo) => {
-      if (todo.id === id) return false;
-    });
+    const a = (el) => id === el.id;
+
+    if (this.#todos.findIndex(a) !== -1) return false;
 
     return true;
   }
@@ -41,9 +41,9 @@ class Todo {
   }
 
   add(name, tags) {
-    const rand = Math.floor(Math.random() * 100000) + 1;
+    const rand = Math.floor(Math.random() * 10000) + 1;
 
-    if (!this._validate(rand)) this.add(text, arr);
+    if (!this._validate(rand)) this.add(name, tags);
 
     const newTodo = {
       name: name,
@@ -62,6 +62,9 @@ class Todo {
   remove(id) {
     let name = '',
       type = '';
+    id = parseInt(id);
+
+    if (this._validate(id)) return console.log('존재하지 않는 ID 입니다.');
 
     this.#todos = this.#todos.filter((todo) => {
       if (parseInt(id) === todo.id) {
@@ -80,9 +83,12 @@ class Todo {
 
   update(id, type) {
     let name = '';
+    id = parseInt(id);
+
+    if (this._validate(id)) return console.log('존재하지 않는 ID 입니다.');
 
     this.#todos.forEach((todo) => {
-      if (todo.id === parseInt(id)) {
+      if (todo.id === id) {
         todo.status = type;
         name = todo.name;
 

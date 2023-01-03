@@ -24,12 +24,12 @@ function getInput(){
             let str=line.split('$');
             //show
             if (str[0]=='show'){
-               show(str[1]);
-           }
+                show(str[1]);
+            }
             //add
             else if (str[0]=='add'){
                 add(str[1],str[2]);
-           }
+            }
             //delete
             else if (str[0]=='delete'){
                 remove(todos,str[1]);

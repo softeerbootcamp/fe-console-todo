@@ -10,7 +10,7 @@ function idelete(idnum){
         }
     }
 
-    console.log("해당 ID가 없습니다.")
+    console.log(`해당 id : ${idnum}가 없습니다.`);
 
     return false;
 }

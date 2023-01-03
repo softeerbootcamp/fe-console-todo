@@ -10,6 +10,22 @@ const reader = readline.createInterface({
     output: process.stdout,
 });
 
+function selectJob(job, firstParam, secondParam) {
+    // delete
+    if(job == 'delete') {
+        deleteRes.idelete(firstParam);
+    }
+    // update
+    else if(job == 'update') {
+        updateRes.update(firstParam, secondParam)
+    }
+    // add
+    else if(job == 'add') {
+        addRes.addlist(firstParam, secondParam);
+    }
+
+    showRes.show("all");
+}
 
 reader.setPrompt('명령하세요: ("exit" to fisnish) ');
 
@@ -30,19 +46,9 @@ reader.on("line", (line) => {
     else if(inputWords[0]=='show' && inputWords.length == 2){
         showRes.show(inputWords[1]);
     }
-    // delete
-    else if(inputWords[0]=='delete' && inputWords.length == 2){
-        deleteRes.idelete(inputWords[1]);
-        showRes.show("all");
-    }
-    // update
-    else if(inputWords[0] === 'update' && updateRes.update(inputWords[1], inputWords[2])) {
-        showRes.show("all");
-    }
-    // add
-    else if(inputWords[0] === 'add'){
-        addRes.addlist(inputWords[1], inputWords[2]);
-        showRes.show("all");
+    // delete & update & add
+    else if(inputWords[0] == 'delete' || inputWords[0] == 'update' || inputWords[0] == 'add') {
+        selectJob(inputWords[0], inputWords[1], inputWords[2]);
     }
     // except case
     else {

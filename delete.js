@@ -1,12 +1,14 @@
 let { todos } = require("./todos");
 
 function delete_input(input){
-    if(!Number(input[1])){
+    const inputId = input[1];
+
+    if(!Number(inputId)){
         console.log("잘못된 입력입니다.");
         return;
     }
 
-    let findValue = todos.findIndex((tmp) => tmp.id === Number(input[1]))
+    let findValue = todos.findIndex((tmp) => tmp.id === Number(inputId))
     if(findValue === -1){
         console.log("해당하는 id가 없습니다.")
         return;

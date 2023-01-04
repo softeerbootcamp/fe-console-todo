@@ -1,4 +1,4 @@
-let todos =  [ {
+const todos =  [ {
 	'name' : '자바스크립트 공부하기', 
 	'tags' : ['programming', 'javascript'],
 	'status' : 'todo',

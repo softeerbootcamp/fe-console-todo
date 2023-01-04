@@ -4,8 +4,10 @@ const io = require('./ioException')
 function command (){
     const inputString = getUserInput()
     io.emptyInputCheck(inputString)
-    const inputList = string2List(inputString)        
-    io.inputListLengthCheck(inputList)
+    const inputList = string2List(inputString)     
+    io.commandCheck(inputList[0])
+    
+    //io.inputListLengthCheck(inputList)
     return inputList
 }
 

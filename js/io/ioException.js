@@ -6,6 +6,11 @@ function emptyInputCheck(inputString) {
         throw new Error("아무것도 입력되지 않았습니다.")
     }
 }
+function commandCheck(command) {
+    if(!validCheck.isValidCommand(command)){
+        throw new Error(command+"는 잘못된 명령어 입니다.")
+    }
+}
 function inputListLengthCheck(inputList) {
     if(!validCheck.isValidInputsLength(inputList)){
         throw new Error("추가 명령어를 입력해주세요.")
@@ -30,6 +35,7 @@ function emptyItemNameCheck(itemName) {
     }
 }
 module.exports.emptyInputCheck = emptyInputCheck
+module.exports.commandCheck = commandCheck
 module.exports.inputListLengthCheck = inputListLengthCheck
 module.exports.statusCheck = statusCheck
 module.exports.findIndex = findIndex

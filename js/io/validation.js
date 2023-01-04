@@ -1,14 +1,14 @@
 
 const output = require('./output')
-const commandList = ['show','add','delete','update']
+const commandList = ['show','add','delete','update','quit']
 const statusList = ['todo','doing','done']
 
 
 function isValidCommand(command) {
-    if(statusList.includes(commandList)){
+    if(commandList.includes(command)){
         return true
     }
-    output.wrongCommand(command)
+    //output.wrongCommand(command)
     return false
 }
 function isValidStatus(status) {

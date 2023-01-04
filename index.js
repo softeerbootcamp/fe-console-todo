@@ -12,7 +12,10 @@ function play() {
   readCommand(MESSAGE.ENTER_COMMAND, (cmd) => {
     try {
       const [command, middle, tags] = parseCommand(cmd);
-      if (command === COMMAND.QUIT) quit();
+      if (command === COMMAND.QUIT) {
+        quit();
+        return;
+      }
       if (command === COMMAND.SHOW) handleShow(todos, middle);
       if (command === COMMAND.ADD) handleAdd(todos, middle, tags);
       if (command === COMMAND.DELETE) handleDelete(todos, middle);

@@ -9,9 +9,8 @@ const rl = readline.createInterface({
 function readCommand(msg, callback) {
   rl.question(msg, callback);
 }
-
 function quit() {
-  process.exit();
+  rl.close();
 }
 
 module.exports = { readCommand, quit };

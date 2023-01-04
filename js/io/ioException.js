@@ -18,7 +18,7 @@ function inputListLengthCheck(inputList) {
 }
 function statusCheck(statusName) {
     if(!validCheck.isValidStatus(statusName)){
-        throw new Error("잘못된 status")
+        throw new Error("잘못된 status를 입력하셨습니다. [todo, doing, done]중에 적어주세요.")
     }
 }
 

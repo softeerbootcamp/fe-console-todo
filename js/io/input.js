@@ -1,12 +1,12 @@
 const readlineSync = require('readline-sync');
 const io = require('./ioException')
 
-function command (){
+function command() {
     const inputString = getUserInput()
     io.emptyInputCheck(inputString)
-    const inputList = string2List(inputString)     
+    const inputList = string2List(inputString)
     io.commandCheck(inputList[0])
-    
+
     //io.inputListLengthCheck(inputList)
     return inputList
 }

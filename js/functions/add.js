@@ -4,6 +4,7 @@ const io = require('../io/ioException')
 
 function item(itemName, tagNames) {
     io.emptyItemNameCheck(itemName)
+    // TODO: 예외처리 필요?
     //io.tagNamesCheck(tagNames)
     const tagList = generateTagNames(tagNames)
     const id = addItem(itemName, tagList)
@@ -24,12 +25,12 @@ const addItem = (itemName, tagList) => {
     data.currentStatus['todo'] += 1
     return id
 }
+
 const generateTagNames = (tagNames) => {
     var result = tagNames.substring(1, tagNames.length-1).split(", ")
     for (i in result) {
         result[i] = result[i].substring(1, result[i].length-1)
     }
-    //console.log(result)
 }
 
 const generateIdNumber = () => {

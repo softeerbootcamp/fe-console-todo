@@ -14,12 +14,13 @@ function printCurrentStatus(todos) {
     }개\n`
   );
 }
+
 function printShowMessage(status, filteredList) {
-  console.log(
-    `${status}리스트 : 총 ${filteredList.length}건 : ${filteredList.join(
-      ','
-    )}\n`
-  );
+  const listDesc =
+    filteredList.length === 0
+      ? '자료가 없습니다.'
+      : `총 ${filteredList.length}건 : ${filteredList.join(' , ')}`;
+  console.log(`${status}리스트 : ${listDesc}\n`);
 }
 
 function printDeleteMessage(name, status) {

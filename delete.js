@@ -1,30 +1,21 @@
 let { todos } = require("./todos");
 
-function del_el(input){
-    let findValue = todos.findIndex((tmp) => tmp.id === Number(input[1]))
-    let del_elem = todos.filter(tmp => tmp.id === Number(input[1]));
-
-    todos.splice(findValue,1);
-    return del_elem;
-}
-
 function delete_input(input){
     if(!Number(input[1])){
         console.log("잘못된 입력입니다.");
         return;
     }
 
-    let del_elem = del_el(input);
-
-    if(!del_elem.length){
+    let findValue = todos.findIndex((tmp) => tmp.id === Number(input[1]))
+    if(findValue === -1){
         console.log("해당하는 id가 없습니다.")
         return;
     }
 
-    process.stdout.write(del_elem[0].name + " " + del_elem[0].status + "가 목록에서 삭제되었습니다\n");
-
+    let del_elem = todos[findValue];
+    todos.splice(findValue,1);
+    process.stdout.write(del_elem.name + " " + del_elem.status + "가 목록에서 삭제되었습니다\n");
     require('./utils').show_status;
 }
 
 module.exports.delete = delete_input;
-module.exports.del_el = del_el; 

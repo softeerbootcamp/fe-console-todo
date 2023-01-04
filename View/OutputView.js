@@ -31,10 +31,15 @@ function printUpdateMessage(name, newStatus) {
   console.log(MESSAGE.UPDATE_MESSAGE(name, newStatus));
 }
 
+function printData(data) {
+  console.log(data);
+}
+
 module.exports = {
   printDeleteMessage,
   printAddMessage,
   printCurrentStatus,
   printShowMessage,
   printUpdateMessage,
+  printData,
 };

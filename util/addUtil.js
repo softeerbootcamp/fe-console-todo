@@ -30,6 +30,7 @@ function getRandom() {
   for (let i = 0; i < idPool.length; i += 1) {
     if (!idPool[i]) return i;
   }
+  idPool[idPool.length] = 1;
   return idPool.length;
 }
 module.exports = { handleAdd };

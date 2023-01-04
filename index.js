@@ -6,7 +6,7 @@ const { handleAdd } = require('./util/addUtil');
 const { handleDelete } = require('./util/deleteUtil');
 const { handleUpdate } = require('./util/updateUtil');
 
-const todos = require('./todos');
+const { todos } = require('./todos');
 
 function play() {
   readCommand(MESSAGE.ENTER_COMMAND, (cmd) => {
@@ -17,11 +17,10 @@ function play() {
       if (command === COMMAND.ADD) handleAdd(todos, middle, tags);
       if (command === COMMAND.DELETE) handleDelete(todos, middle);
       if (command === COMMAND.UPDATE) handleUpdate(todos, middle, tags);
-      play();
     } catch (error) {
       console.log(error.message);
-      play();
     }
+    play();
   });
 }
 

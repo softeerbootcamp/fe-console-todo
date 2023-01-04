@@ -1,4 +1,4 @@
-const todos = require('./todos')["todos"];
+const todos = require("./todos")["todos"];
 
 function validateID() {
     let now = new Date();
@@ -17,9 +17,9 @@ function validateID() {
 
 function addList(todoName, todoTags){
     todos.push({
-        'name':todoName,
-        'tags':todoTags,
-        'status':"todo",
+        "name":todoName,
+        "tags":todoTags,
+        "status":"todo",
         "id": validateID()
     });
 

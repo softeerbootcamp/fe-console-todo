@@ -20,7 +20,7 @@ reader.on("line", (line) => {
     }
 
     // 사용자 input 파싱하여 배열 저장
-    let inputWords = line.split('$');
+    let inputWords = line.split("$");
 
     // show
     if(showReg.test(line)) {

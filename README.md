@@ -1,79 +1,70 @@
-# fe-console-todo
-# 1/2 콘솔TODO
+# FE-CONSOLE-TODO
+# 미션-콘솔TODO
 
----
+## 1. Terms
+**todos 배열** : todo list 데이터를 담는 전역적 변수
 
-# 1. Terms
+**currentStatus** : todo list 내 status별로 개수를 저장하는 dictionary.
 
-배열 (const todos): 전체 데이터 (기존 데이터는 깡배열. Item배열로 바꾸는 작업 필요?)
-
-class Item: todos의 객체 타입
-
----
-
-# 2. 기능 명세
-
+## 2. 기능
 ### show
 
-$all
-currentStatus의 todo, doing, done 수 출력
-ex) 현재상태: todo: 3개, doing: 2개, done: 4개
+**all()**
 
-$STATUS_NAME
-배열의 총 entity 개수, 배열의 STATUS_NAME에 해당하는 { name, id+’번’ }들 출력
-ex) 총2건 : ' 자바스크립트 공부하기, 1822번' , 'iOS공부하기, 9933번'
+현재 currentStatus 출력
 
+**thisStatus(statusName)**
+
+statusName에 해당하는 todos 배열의 요소의 {name, id} 모두 출력
 ### add
 
-$ITEM_NAME$[TAG_NAMES]$ID_NUMBER
-새로운 ITEM 객체 생성. 
-객체 name이 ITEM_NAME & tags는 TAG_NAMES & status는 todo & id는 ID_NUMBER
-$ITEM_NAME 추가되었습니다. (id: ID_NUMBER) 
+**item(itemName, tagNames)**
+
+추가될 entity의 {name, id} 출력
+
+tagNames 속성을 가진 itemName 이름의 새로운 entity를 todos 배열에 추가.
+
+currentStatus 출력
 
 ### delete
 
-$ID
-ID에 해당되는 entity 제거 후, 어떠한 status가 제거되었는지 표시, show$all 출력
-ex) 공부하기 todo가 목록에서 삭제되었습니다.\n 현재상태: todo: 3개, doing: 2개, done: 4개
+**item(idNumber)**
+
+삭제될 entity의 {id, status} 출력
+
+idNumber의 id값을 가진 todos 배열의 요소 제거
+
+currentStatus 출력
 
 ### update
 
-$ID$STATUS_NAME
-{기존 status}가 {STATUS_NAME}으로 상태가 변경되었습니다 출력
-ID에 해당하는 entity의 status를 STATUS_NAME으로로 변경,
-show$all 출력
+**status(idNumber, statusName)**
 
----
+update될 entity의 기존 status, 입력된 status 출력
 
-# 3. 구현 할것
+idNumber의 id값을 가진 todos 배열의 요소의 status를 statusName으로 업데이트
 
-- node 실행 후 입력 어떻게 받아야하지? → readline module
-[https://velog.io/@leenzy/readline-모듈-사용하기](https://velog.io/@leenzy/readline-%EB%AA%A8%EB%93%88-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
-- *검색의 효율? → id가 AI식으로 증가.*
-- 기존 todos 배열을 Item class의 배열로 어떻게 전환하지?
-- 클래스의 효율성 & 클래스 활용법 대해 고민해보기
+currentStatus 출력
 
----
+## 3. 구조
 
-# 4. 구현 방법
+./js/todos.js: 메인 파일. 입력을 받아 기능을 수행
 
-dictionary 선언 → const currentStatus = { todo: 0, doing: 0, done: 0 }
+./js/data.js: default data와 currentStatus를 저장하며, 초기화
 
-프로그램 시작 시, todos 내부 요소의 status counting 필요.
+./js/functions: 입력값에 대한 기능을 수행
 
-todos 내부 객체 → class Item: name, tags, status, id
+./js/io: 키보드 입출력 및 입력값에 대한 예외 처리 수행
 
+## 4. 예외 처리 경우
+ioException.js에 위치함
+- emptyInputCheck: 아무 입력도 하지 않음
+- inputListLengthCheck: 명령어 개수가 부족함
+- statusCheck: 잘못된 status값 입력됨 (todo, doing, done 이외의 값)
+- findIndex: 입력된 id number가 todos 배열에 없음
+- emptyItemNameCheck: add시 이름이 빈 문자열임
 
-# 5. 예외 처리
+## 5. 팀
 
-- 잘못된 명령어일 경우
-    - show, add, delete, update, all 이외에 명령어인 경우
-- 3가지 status(todo, doing, done)이외에 명령어를 입력한 경우
-- update또는 delete시에 todos 배열에 없는 id를 요청할 경우
-- update시에 tag에 배열을 입력하지 않은 경우
-
-[https://www.npmjs.com/package/array-tools](https://www.npmjs.com/package/array-tools)
-배열 처리 패키지
-
-[https://github.com/NaRae-tech/javascript-racingcar-precourse/tree/narae](https://github.com/NaRae-tech/javascript-racingcar-precourse/tree/narae)
-예시 코드 레포
+- [@jaehyuncho](https://www.github.com/hyunrice98)
+- [@tdmdgh](https://www.github.com/tdmdgh)

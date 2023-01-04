@@ -7,7 +7,7 @@ function item(idNumber) {
     const itemName = data.todos[itemIndex].id
     const statusName = data.todos[itemIndex].status
 
-    output.showDeleteResult(itemName,statusName)//공부하기 todo가 목록에서 삭제됐습니다
+    output.showDeleteResult(itemName, statusName)//공부하기 todo가 목록에서 삭제됐습니다
 
     data.currentStatus[statusName] -= 1
     output.showCurrentStatus()

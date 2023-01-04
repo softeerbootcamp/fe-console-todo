@@ -12,7 +12,7 @@ function status(idNumber, statusName) {
     const pastStatus = data.todos[itemIndex].status
 
     //공부하기가 doing으로 상태가 변경됐습니다
-    output.showUpdateResult(pastStatus,statusName)
+    output.showUpdateResult(pastStatus, statusName)
 
     //currentStatus의 value 변경
     data.currentStatus[data.todos[itemIndex].status] -= 1

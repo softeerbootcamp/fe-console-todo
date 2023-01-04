@@ -8,7 +8,7 @@ function item(itemName, tagNames) {
     //io.tagNamesCheck(tagNames)
     const tagList = generateTagNames(tagNames)
     const id = addItem(itemName, tagList)
-    output.showAddResult(itemName,id)
+    output.showAddResult(itemName, id)
     output.showCurrentStatus()
 
 }
@@ -27,9 +27,9 @@ const addItem = (itemName, tagList) => {
 }
 
 const generateTagNames = (tagNames) => {
-    var result = tagNames.substring(1, tagNames.length-1).split(", ")
+    var result = tagNames.substring(1, tagNames.length - 1).split(", ")
     for (i in result) {
-        result[i] = result[i].substring(1, result[i].length-1)
+        result[i] = result[i].substring(1, result[i].length - 1)
     }
 }
 

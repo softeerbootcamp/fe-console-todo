@@ -1,15 +1,15 @@
- const todos =  [ 
+const todos = [
     {
-        'name' : '자바스크립트 공부하기', 
-        'tags' : ['programming', 'javascript'],
-        'status' : 'todo',
-        'id' : 121
+        'name': '자바스크립트 공부하기',
+        'tags': ['programming', 'javascript'],
+        'status': 'todo',
+        'id': 121
     },
-                    {
-        'name' : ' 그림 그리기', 
-        'tags' : ['picture', 'favorite'],
-        'status' : 'doing',
-        'id' : 312323
+    {
+        'name': ' 그림 그리기',
+        'tags': ['picture', 'favorite'],
+        'status': 'doing',
+        'id': 312323
     }
 ]
 
@@ -33,7 +33,7 @@ for (i in todos) {
     }
 }
 
-function binarySearch(target){
+function binarySearch(target) {
     let left = 0;
     let right = todos.length - 1;
     let mid = 0;
@@ -47,7 +47,7 @@ function binarySearch(target){
         }
 
         // 대소 비교로 범위 지정
-        if (todos[mid]['id']  > target) {
+        if (todos[mid]['id'] > target) {
             right = mid - 1;
         } else {
             left = mid + 1;

@@ -7,8 +7,7 @@ function show(word){
     }
     else{
         var num =arrCount(todos, word, 'status');
-        if (num==0){console.log(`${word}리스트: 총 ${num}건 `);}
-        else{process.stdout.write(`${word}리스트: 총 ${num}건 : `);}
+        num==0?process.stdout.write(`${word}리스트: 총 ${num}건 `):process.stdout.write(`${word}리스트: 총 ${num}건 : `)
         
         var categoryList= todos.filter(item=>item['status'] === word)
         .map(item => {return `'${item['name']}, ${item['id']}번'`;});

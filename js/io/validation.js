@@ -8,14 +8,12 @@ function isValidCommand(command) {
     if (commandList.includes(command)) {
         return true
     }
-    //output.wrongCommand(command)
     return false
 }
 function isValidStatus(status) {
     if (statusList.includes(status)) {
         return true
     }
-    //output.wrongStatus(status)
     return false
 }
 
@@ -23,7 +21,6 @@ function isValidIndex(index) {
     if (index != -1) {
         return true
     }
-    //output.wrongIndex(index)
     return false
 }
 function isEmptyInput(input) {

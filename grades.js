@@ -27,7 +27,7 @@ function getInput(){
                 show(str[1]);
             }
             //add
-            else if (str[0]=='add' &&str.length==2){
+            else if (str[0]=='add' &&str.length==3){
                 add(str[1],str[2]);
             }
             //delete

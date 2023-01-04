@@ -4,7 +4,7 @@ const {
   UpdateCommand,
   AddCommand,
   FinishCommand,
-} = require("./commands");
+} = require("./command");
 const { UnknownCommandError } = require("./TodoErrors");
 const { commandTypes } = require("./Constants");
 

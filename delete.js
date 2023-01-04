@@ -1,16 +1,17 @@
 const todos = require("./todos")["todos"];
+const {MESSAGES, SHOW_STATUS, ERROR_MESSAGE} = require("./constants");
 
 function idelete(idnum){
     for(let i = 0; i < todos.length; i++){
-        if(todos[i].id === idnum){
-            console.log(`${todos[i].name} ${todos[i].status}가 목록에서 삭제됐습니다`);
+        if(todos[i].id === Number(idnum)){
+            console.log(MESSAGES.DELETE_MESSAGE(todos[i].name, todos[i].status));
             todos.splice(i, 1);
 
             return;
         }
     }
 
-    console.log("해당 ID가 없습니다.")
+    console.log(ERROR_MESSAGE.ERROR_ID_MISSING(idnum));
 
     return;
 }

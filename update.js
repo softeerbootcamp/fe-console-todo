@@ -1,8 +1,9 @@
 const todos = require("./todos")["todos"];
+const {MESSAGES, SHOW_STATUS, ERROR_MESSAGE} = require("./constants");
 
 function update(id, changedStatus) {
     if(["todo", "doing", "done"].find(element => element === changedStatus) === undefined) {
-        console.log("올바른 status를 입력해주세요.")
+        console.log(MESSAGES.ERROR_STATUS("STATUS"));
 
         return false;
     }
@@ -10,14 +11,14 @@ function update(id, changedStatus) {
     for(let i=0;i<todos.length;i++) {
         if(todos[i].id === id) {
             todos[i].status = changedStatus;
-            
+            console.log(MESSAGES.UPDATE_MESSAGE(todos[i].name,changedStatus));
             return true;
         }
     }
 
-    console.log(`해당 id : ${id}가 없습니다.`)
+    console.log(ERROR_MESSAGE.ERROR_ID_MISSING(id));
 
-    return false
+    return false;
 }
 
 module.exports = { update };

@@ -1,4 +1,5 @@
 const todos = require("./todos")["todos"];
+const {MESSAGES, SHOW_STATUS, ERROR_MESSAGE} = require("./constants");
 
 function validateID() {
     let now = new Date();
@@ -16,14 +17,26 @@ function validateID() {
 }
 
 function addList(todoName, todoTags){
-    todos.push({
-        "name":todoName,
-        "tags":todoTags,
-        "status":"todo",
-        "id": validateID()
-    });
+    if(todoTags[0] != '[' || todoTags[todoTags.length - 1] != ']'){
+        console.log(ERROR_MESSAGE.ERROR_COMMAND);
+        return;
+    }
+    else{
+        todoTags = todoTags.slice(1,-1);
+        let newtags = todoTags.split(',');
+        for(let i = 0; i < newtags.length; i++){
+            newtags[i] = newtags[i].split('"')[1];
+        }
 
-    console.log(`${todoName} 1개가 추가됐습니다. (id: ${todos[todos.length - 1].id})`);
+        todos.push({
+            'name':todoName,
+            'tags':newtags,
+            'status':"todo",
+            "id": validateID()
+        });
+    
+        console.log(MESSAGES.ADD_MESSAGE(todoName,todos[todos.length - 1].id));
+    }
 }
 
 module.exports = { addList };

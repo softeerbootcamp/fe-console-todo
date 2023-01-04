@@ -4,13 +4,14 @@ const { idelete } = require('./delete');
 const { addList } = require("./add");
 const {showReg, addReg, deleteReg, updateReg} = require("./regExp");
 const readline = require("readline");
+const {MESSAGES, ERROR_MESSAGE} = require("./constants");
 
 const reader = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
 });
 
-reader.setPrompt('명령하세요 ("exit" to fisnish) : ');
+reader.setPrompt(MESSAGES.ENTER_COMMAND);
 
 reader.prompt(); 
 
@@ -42,7 +43,7 @@ reader.on("line", (line) => {
         show("all");
     }
     else {
-        console.log("잘못된 입력입니다. 올바르게 입력해주세요.")
+        console.log(ERROR_MESSAGE.ERROR_COMMAND);
     }
 
     reader.prompt();

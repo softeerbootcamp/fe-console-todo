@@ -1,4 +1,5 @@
 const todos = require("./todos")["todos"];
+const {MESSAGES, SHOW_STATUS, ERROR_MESSAGE} = require("./constants");
 
 function statusIndex(givenList, status) {
     process.stdout.write(`${status}리스트 : 총${givenList.length}건`);
@@ -20,7 +21,7 @@ function show(status) {
     dict["done"] = [];
 
     if(["all", "todo", "doing", "done"].find(element => element === status) === undefined) {
-        console.log("올바른 status를 입력해주세요.");
+        console.log(ERROR_MESSAGE.ERROR_STATUS);
 
         return;
     }

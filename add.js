@@ -15,7 +15,7 @@ function validateID() {
     return nowToSeconds
 }
 
-function addlist(todoName, todoTags){
+function addList(todoName, todoTags){
     todos.push({
         'name':todoName,
         'tags':todoTags,
@@ -26,4 +26,4 @@ function addlist(todoName, todoTags){
     console.log(`${todoName} 1개가 추가됐습니다. (id: ${todos[todos.length - 1].id})`);
 }
 
-exports.addlist = addlist;
+module.exports = { addList };

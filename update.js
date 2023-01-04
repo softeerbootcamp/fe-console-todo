@@ -20,4 +20,4 @@ function update(id, changedStatus) {
     return false
 }
 
-exports.update = update;
+module.exports = { update };

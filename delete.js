@@ -15,4 +15,4 @@ function idelete(idnum){
     return false;
 }
 
-exports.idelete = idelete;
+module.exports = { idelete };

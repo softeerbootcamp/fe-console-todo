@@ -1,7 +1,7 @@
-const showRes = require('./show');
-const updateRes = require("./update");
-const deleteRes = require('./delete');
-const addRes = require("./add");
+const { show } = require('./show');
+const { update } = require("./update");
+const { idelete } = require('./delete');
+const { addList } = require("./add");
 
 const readline = require("readline");
 
@@ -13,18 +13,18 @@ const reader = readline.createInterface({
 function selectJob(job, firstParam, secondParam) {
     // delete
     if(job === 'delete') {
-        deleteRes.idelete(firstParam);
+        idelete(firstParam);
     }
     // update
     else if(job === 'update') {
-        updateRes.update(firstParam, secondParam)
+        update(firstParam, secondParam)
     }
     // add
     else if(job === 'add') {
-        addRes.addlist(firstParam, secondParam);
+        addList(firstParam, secondParam);
     }
 
-    showRes.show("all");
+    show("all");
 }
 
 reader.setPrompt('명령하세요: ("exit" to fisnish) ');
@@ -44,7 +44,7 @@ reader.on("line", (line) => {
     }
     // show
     else if(inputWords[0]=== 'show' && inputWords.length === 2){
-        showRes.show(inputWords[1]);
+        show(inputWords[1]);
     }
     // delete & update & add
     else if(inputWords[0] === 'delete' || inputWords[0] === 'update' || inputWords[0] === 'add') {

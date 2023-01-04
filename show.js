@@ -37,4 +37,4 @@ function show(status) {
     }
 }
 
-exports.show = show;
+module.exports = { show };

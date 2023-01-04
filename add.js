@@ -2,7 +2,7 @@ const todos = require('./todos.js');
 const show = require('./show.js');
 
 function add(name,tags){
-    var timestamp = new Date().getUTCMilliseconds();
+    let timestamp = new Date().getUTCMilliseconds();
     id= (timestamp+Math.floor(Math.random() * (9000 - 1000 + 1)) + 1000);
     todos.push({
         'name':name,

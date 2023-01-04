@@ -6,13 +6,13 @@ function idelete(idnum){
             console.log(`${todos[i].name} ${todos[i].status}가 목록에서 삭제됐습니다`);
             todos.splice(i, 1);
 
-            return true;
+            return;
         }
     }
 
     console.log("해당 ID가 없습니다.")
 
-    return false;
+    return;
 }
 
 module.exports = { idelete };

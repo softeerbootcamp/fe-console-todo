@@ -1,28 +1,31 @@
-const commandTypes = {
-    SHOW: 'show',
-    ADD: 'add',
-    UPDATE: 'update',
-    DELETE: 'delete'
-};
-Object.freeze(commandTypes);
+const commandTypes = Object.freeze({
+  SHOW: "show",
+  ADD: "add",
+  UPDATE: "update",
+  DELETE: "delete",
+  FIN: "fin",
+});
 
-const showOptions = {
-    ALL: 'all',
-    TODO: 'todo',
-    DOING: 'doing',
-    DONE: 'done'
-};
-Object.freeze(showOptions);
+const showOptions = Object.freeze({
+  ALL: "all",
+  TODO: "todo",
+  DOING: "doing",
+  DONE: "done",
+});
 
-const statusTypes = {
-    TODO: 'todo',
-    DOING: 'doing',
-    DONE: 'done'
-};
-Object.freeze(statusTypes);
+const statusTypes = Object.freeze({
+  TODO: "todo",
+  DOING: "doing",
+  DONE: "done",
+});
+
+const resultCodes = Object.freeze({
+  FIN: -1,
+});
 
 module.exports = {
-    commandTypes,
-    showOptions,
-    statusTypes
+  commandTypes,
+  showOptions,
+  statusTypes,
+  resultCodes,
 };

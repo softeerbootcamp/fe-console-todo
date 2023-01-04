@@ -2,9 +2,9 @@
   "name": "fe-console-todo",
   "version": "1.0.0",
   "description": "",
-  "main": "todos.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node todos.js"
   },
   "repository": {
     "type": "git",
@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/softeerbootcamp/fe-console-todo/issues"
   },
-  "homepage": "https://github.com/softeerbootcamp/fe-console-todo#readme",
-  "dependencies": {
-    "@woowacourse/mission-utils": "^1.0.6"
-  }
+  "homepage": "https://github.com/softeerbootcamp/fe-console-todo#readme"
 }

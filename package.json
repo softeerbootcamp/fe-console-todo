@@ -1,0 +1,23 @@
+{
+  "name": "fe-console-todo",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdmdgh/fe-console-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tdmdgh/fe-console-todo/issues"
+  },
+  "homepage": "https://github.com/tdmdgh/fe-console-todo#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

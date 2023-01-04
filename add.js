@@ -11,7 +11,6 @@ function add_input(input){
     ele.status = TODO;
     let tag = inputTags.slice(1 , -1).split(',').map(e => e.trim().slice(1,-1).trim());
     ele.tags = tag;
-    console.log("tag", tag);
 
     todos.push(ele);
     console.log("공부하기 1개가 추가되었습니다. (id : " , ele.id +")");

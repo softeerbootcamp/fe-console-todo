@@ -50,7 +50,7 @@ function tagQuoteValidator(tagArray) {
   tagArray.forEach((ele) => {
     const trimedTag = ele.trim();
     if (
-      ele &&
+      trimedTag &&
       !(singleQuoteReg.test(trimedTag) || doubleQuoteReg.test(trimedTag))
     )
       throw new Error(ERROR.INVALID_QUOTE);

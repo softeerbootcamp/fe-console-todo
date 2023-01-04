@@ -1,11 +1,12 @@
 const { STATUS } = require('../constants');
+const { idPool } = require('../todos');
 const { printCurrentStatus } = require('../View/OutputView');
 const { printAddMessage } = require('../View/OutputView');
 const { addValidator, getTagArrayWithoutBracket } = require('../validator');
 
 function handleAdd(todos, name, tags) {
   addValidator(name, tags);
-  const id = getRandom(todos);
+  const id = getRandom();
   todos.push({
     name,
     tags: parseTags(tags),
@@ -25,14 +26,10 @@ function parseTags(tags) {
   return [...tagSet];
 }
 
-function getRandom(todos) {
-  const arr = [];
-  todos.forEach((ele) => {
-    arr[ele.id] = 1;
-  });
-  for (let i = 0; i < arr.length; i += 1) {
-    if (!arr[i]) return i;
+function getRandom() {
+  for (let i = 0; i < idPool.length; i += 1) {
+    if (!idPool[i]) return i;
   }
-  return arr.length;
+  return idPool.length;
 }
 module.exports = { handleAdd };

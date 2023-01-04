@@ -1,6 +1,7 @@
 const Command = require("./Command");
 const { getShowAllResult } = require("./Show");
 const { findTodoIdx } = require("../Utils");
+const { MalformedFirstArgument } = require("../TodoErrors");
 
 class DeleteCommand extends Command {
   constructor(arg1, arg2) {

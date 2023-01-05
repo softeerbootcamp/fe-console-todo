@@ -1,0 +1,22 @@
+const todos = [
+  {
+    name: '자바스크립트 공부하기',
+    tags: ['programming', 'javascript'],
+    status: 'todo',
+    id: 12123123,
+  },
+  {
+    name: '그림 그리기',
+    tags: ['picture', 'favorite'],
+    status: 'doing',
+    id: 312323,
+  },
+];
+const idPool = [];
+(() => {
+  todos.forEach((ele) => {
+    idPool[ele.id] = 1;
+  });
+})();
+
+module.exports = { todos, idPool };

@@ -1,0 +1,20 @@
+{
+  "name": "fe-console-todo",
+  "version": "1.0.0",
+  "description": "문경덕 정태훈 페어 프로그래밍",
+  "main": "grade.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "play": "node grade.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moon-GD/fe-console-todo.git"
+  },
+  "author": "문경덕, 정태훈",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moon-GD/fe-console-todo/issues"
+  },
+  "homepage": "https://github.com/Moon-GD/fe-console-todo#readme"
+}

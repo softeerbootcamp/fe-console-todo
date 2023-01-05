@@ -1,0 +1,19 @@
+{
+  "name": "fe-console-todo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node todos.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softeerbootcamp/fe-console-todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/softeerbootcamp/fe-console-todo/issues"
+  },
+  "homepage": "https://github.com/softeerbootcamp/fe-console-todo#readme"
+}
